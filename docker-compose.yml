@@ -1,0 +1,15 @@
+
+services:
+  dev-db:
+    image: postgres:13
+    ports:
+      - 5435:5432
+    environment:
+      POSTGRES_USER: mekd7777
+      POSTGRES_PASSWORD: physicsmanji7
+      POSTGRES_DB: financeTracker
+    networks:
+      - financeTracker
+
+networks:
+  financeTracker: 
