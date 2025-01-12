@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Management - Finance Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Keep the background consistent */
+        }
+        .header {
+            background-color: #007bff; /* Header color */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Finance Tracker</h1>
+    </div>
+    <div class="container mt-4">
+        <h2>Role Management</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Current Role</th>
+                    <th>Change Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="user-table-body">
+                <!-- Sample row, this should be populated dynamically -->
+                <tr>
+                    <td>user@example.com</td>
+                    <td id="role-1">User</td>
+                    <td>
+                        <select class="form-control" onchange="changeRole(1, this.value)">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" onclick="updateRole(1)">Update Role</button>
+                    </td>
+                </tr>
+                <!-- More rows can be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+    <script src="../src/admin-dashboard.ts"></script>
+</body>
+</html>
