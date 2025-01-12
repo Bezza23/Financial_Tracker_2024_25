@@ -1,0 +1,20 @@
+import { PrismaService } from '../prisma/prisma.service';
+import { AuthDto } from './dto';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
+import { Role } from '@prisma/client';
+export declare class AuthService {
+    private prisma;
+    private jwt;
+    private config;
+    constructor(prisma: PrismaService, jwt: JwtService, config: ConfigService);
+    signup(dto: AuthDto): Promise<{
+        access_token: string;
+    }>;
+    signin(dto: AuthDto): Promise<{
+        access_token: string;
+    }>;
+    signToken(userId: number, email: string, role: Role): Promise<{
+        access_token: string;
+    }>;
+}
