@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .btn-custom {
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .summary {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-primary text-white py-4">
+        <div class="container">
+            <h1 class="mb-0 fw-bold">Personal Finance Dashboard</h1>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <h2>User Dashboard</h2>
+        
+        <!-- Action Buttons -->
+        <div class="mb-3">
+            <a href="transaction.html" class="btn btn-primary btn-custom">Expense Management</a>
+            <a href="set  budget.html" class="btn btn-primary btn-custom">Set Budget</a>
+        </div>
+        
+        <!-- Summary Report -->
+        <div class="summary">
+            <h3>Summary Report</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Total Income</th>
+                        <th>Total Expenses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="totalIncome">0</td>
+                        <td id="totalExpenses">0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Income Sources:</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="incomeSources"></tbody>
+            </table>
+            <h4>Expense Reasons:</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Reason</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseReasons"></tbody>
+            </table>
+        </div>
+        
+        <!-- Income Management Section (Initially Hidden) -->
+        <div id="incomeSection" style="display:none;">
+            <h2>Income Dashboard</h2>
+            <form id="incomeForm">
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" class="form-control" id="incomeAmount" required>
+                </div>
+                <div class="form-group">
+                    <label for="source">Source:</label>
+                    <input type="text" class="form-control" id="incomeSourceInput" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="incomeDescription" required>
+                </div>
+                <button type="submit" class="btn btn-success">Add Income</button>
+            </form>
+            <div class="income-list">
+                <h3>Your Income:</h3>
+                <ul id="incomeList" class="list-group"></ul>
+            </div>
+        </div>
+
+        <!-- Expense Management Section (Initially Hidden) -->
+        <div id="expenseSection" style="display:none;">
+            <h2>Expense Dashboard</h2>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" class="form-control" id="expenseAmount" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Category:</label>
+                    <input type="text" class="form-control" id="expenseType" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="expenseDescriptionInput" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Expense</button>
+            </form>
+            <div class="expense-list">
+                <h3>Your Expenses:</h3>
+                <ul id="expenseList" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../src/user-dashboard.ts"></script>
+</body>
+</html>
